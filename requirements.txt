@@ -1,0 +1,8 @@
+websockets
+aiohttp
+streamlit
+pandas
+plotly
+requests
+rich
+python-dotenv
