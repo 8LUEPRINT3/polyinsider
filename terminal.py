@@ -72,7 +72,7 @@ def load_markets() -> pd.DataFrame:
     if not DB_PATH.exists():
         return pd.DataFrame()
     con = sqlite3.connect(DB_PATH)
-    df = pd.read_sql("SELECT * FROM markets ORDER BY volume_24h DESC", con)
+    df = pd.read_sql("SELECT name, MAX(volume_24h) as volume_24h, MAX(last_seen) as last_seen FROM markets GROUP BY name ORDER BY volume_24h DESC", con)
     con.close()
     return df
 
